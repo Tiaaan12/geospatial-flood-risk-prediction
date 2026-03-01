@@ -9,7 +9,10 @@ print(data.isnull().sum()) # check if there are null values
 print(data['occured'].value_counts(normalize=True)) # check if the target values are balance
 
 # remove unecessary features
-data = data.drop(['Total_Deaths', 'Total Affected', 'Disaster_type', 'time', 'distance'], axis=1)
+data = data.drop(['Total Deaths', 'Total Affected', 'Disaster Type', 'time', 'distance'], axis=1)
+
+data.replace([np.inf, -np.inf], np.nan, inplace=True)
+data.fillna(data.median(numeric_only=True), inplace=True)
 
 
 
