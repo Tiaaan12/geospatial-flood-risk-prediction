@@ -2,9 +2,10 @@ from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler    
 from preprocess import load_process
 from imblearn.over_sampling import SMOTE
+from sklearn.metrics import classification_report
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DATA = BASE_DIR / "data" / "raw" / "flood_dataset_classification.csv"
@@ -36,6 +37,7 @@ def train():
     xgb.fit(X_train_res, y_train_res)
     
     y_pred = xgb.predict(X_test_s)
+    print(classification_report(y_pred, y_test))
     
     print(xgb.score(X_test_s, y_test))
     
