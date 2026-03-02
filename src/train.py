@@ -32,18 +32,13 @@ def train():
     learning_rate=0.1,
 )
 
-    sm = SMOTE(random_state=42)
-    X_train_res, y_train_res = sm.fit_resample(X_train_s, y_train)
-    xgb.fit(X_train_res, y_train_res)
+    xgb.fit(X_train_s, y_train)
     
     y_pred = xgb.predict(X_test_s)
     print(classification_report(y_pred, y_test))
-    
     print(xgb.score(X_test_s, y_test))
     
   
-    
-    
 if __name__ == "__main__":
     train() 
     
