@@ -20,3 +20,19 @@ if "prediction" not in st.session_state:
     st.session_state.probability = None
     st.session_state.lat = None
     st.session_state.lon = None
+    
+if st.sidebar.button("Predict Flood Risk"):
+
+    prediction, probability = predict_single(
+        latitude,
+        longitude,
+        duration,
+        rainfall,
+        elevation,
+        slope
+    )
+
+    st.session_state.prediction = prediction
+    st.session_state.probability = probability
+    st.session_state.lat = latitude
+    st.session_state.lon = longitude
