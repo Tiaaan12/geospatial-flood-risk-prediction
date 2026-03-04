@@ -25,3 +25,15 @@ def predict_single(latitude, longitude, duration, rainfall, elevation, slope):
         "Elevation": elevation,
         "Slope": slope
     }])
+    
+    # do the same feature engineering
+    data["rainfall_elevation"] = data["Rainfall"] / (data["Elevation"] + 1)
+    data["terrain_risk"] = data["Rainfall"] / (data["Elevation"] - data["Elevation"].min() + 10)
+    data["rain_slope"] = data["Rainfall"] * data["Slope"]
+
+
+    for col in ["rainfall_elevation", "terrain_risk", "rain_slope"]:
+        min_val = data[col].min()
+        shift = abs(min_val) + 1 if min_val <= 0 else 0
+        data[col] = np.log1p(data[col] + shift)
+
