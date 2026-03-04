@@ -36,3 +36,20 @@ if st.sidebar.button("Predict Flood Risk"):
     st.session_state.probability = probability
     st.session_state.lat = latitude
     st.session_state.lon = longitude
+    
+if st.session_state.prediction is not None:
+
+    prediction = st.session_state.prediction
+    probability = st.session_state.probability
+    lat = st.session_state.lat
+    lon = st.session_state.lon
+
+    if probability >= 0.7:
+        st.error(f"⚠️ High Flood Risk ({probability:.2%})")
+        marker_color = "red"
+    elif probability >= 0.4:
+        st.warning(f"⚠️ Medium Flood Risk ({probability:.2%})")
+        marker_color = "orange"
+    else:
+        st.success(f"✅ Low Flood Risk ({probability:.2%})")
+        marker_color = "green"
