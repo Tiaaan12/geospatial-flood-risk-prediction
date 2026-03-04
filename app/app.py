@@ -14,3 +14,9 @@ duration = st.sidebar.number_input("Duration (days)", 0.0, 100.0, 1.0)
 rainfall = st.sidebar.number_input("Rainfall", 0.0, 1000.0, 50.0)
 elevation = st.sidebar.number_input("Elevation", 0.0, 5000.0, 100.0)
 slope = st.sidebar.number_input("Slope", 0.0, 90.0, 5.0)
+
+if "prediction" not in st.session_state:
+    st.session_state.prediction = None
+    st.session_state.probability = None
+    st.session_state.lat = None
+    st.session_state.lon = None
