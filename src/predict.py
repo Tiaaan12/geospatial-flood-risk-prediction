@@ -51,5 +51,13 @@ def predict_single(latitude, longitude, duration, rainfall, elevation, slope):
 
 
     data = data[feature_order]
+    
+    data_scaled = scaler.transform(data)
+
+    prediction = model.predict(data_scaled)[0]
+    probability = model.predict_proba(data_scaled)[0][1]
+
+
+    return prediction, probability
 
 
