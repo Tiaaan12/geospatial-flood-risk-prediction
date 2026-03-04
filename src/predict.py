@@ -36,4 +36,20 @@ def predict_single(latitude, longitude, duration, rainfall, elevation, slope):
         min_val = data[col].min()
         shift = abs(min_val) + 1 if min_val <= 0 else 0
         data[col] = np.log1p(data[col] + shift)
+        
+    feature_order = [
+        "Latitude",
+        "Longitude",
+        "duration",
+        "Rainfall",
+        "Elevation",
+        "Slope",
+        "rainfall_elevation",
+        "terrain_risk",
+        "rain_slope"
+    ]
+
+
+    data = data[feature_order]
+
 
