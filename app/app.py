@@ -53,3 +53,13 @@ if st.session_state.prediction is not None:
     else:
         st.success(f"✅ Low Flood Risk ({probability:.2%})")
         marker_color = "green"
+
+    m = folium.Map(location=[lat, lon], zoom_start=10)
+
+    folium.Marker(
+        [lat, lon],
+        popup=f"Flood Risk: {probability:.2%}",
+        icon=folium.Icon(color=marker_color)
+    ).add_to(m)
+
+    st_folium(m, width=900, height=500)
