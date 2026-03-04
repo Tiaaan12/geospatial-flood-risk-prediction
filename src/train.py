@@ -15,6 +15,7 @@ SCALER_PATH = BASE_DIR / "models" / "scaler.pkl"
 def train():
 
     data = load_process(RAW_DATA)
+    print(data.info())
     
     X = data.drop(['occured'], axis=1)
     y = data['occured']
@@ -58,8 +59,9 @@ def train():
     print(best_estimators.score(X_test_s, y_test))
     
     #saving the model
-    joblib.dump(scaler, SCALER_PATH)
-    joblib.dump(xgb_model, MODEL_PATH)
+    
+    #joblib.dump(scaler, SCALER_PATH)
+    #joblib.dump(xgb_model, MODEL_PATH)
   
 if __name__ == "__main__":
     train() 
