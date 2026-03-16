@@ -1,6 +1,10 @@
 import streamlit as st
 import folium
+import sys
+import os
 from streamlit_folium import st_folium
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.predict import predict_single
 
 st.set_page_config(page_title="Flood Risk Predictor", layout="wide")
