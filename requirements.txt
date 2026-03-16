@@ -1,8 +1,12 @@
 pandas
-joblib
 numpy
-streamlit==1.54.0
-folium
-streamlit_folium
+joblib
 scikit-learn
+
+folium
+streamlit-folium
+geopandas
+
+altair<5 
+streamlit==1.54.0
 matplotlib
