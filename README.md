@@ -7,14 +7,18 @@ This repository contains a machine learning application designed to predict floo
 Technical Stack
 
 • Framework: Streamlit
+
 • Model: XGBoost (Gradient Boosting)
+
 • Spatial Data: Folium
 
 Project Structure
 
 The project is organized to separate the user interface from the core prediction logic:
 • /app: Contains the Streamlit entry point and UI components.
+
 • /src: Contains the predict.py module and model inference logic.
+
 • /requirements.txt: Managed dependencies for deployment.
 
 Implementation Details
