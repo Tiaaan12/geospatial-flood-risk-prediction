@@ -35,8 +35,6 @@ https://geospatial-flood-risk-predictor.streamlit.app/
 
 ![Application Interface](assets/interface.png)
 
-> *Create an `assets` folder in your repository and place your application screenshot inside it as `interface.png`.*
-
 ---
 
 # ✨ Features
